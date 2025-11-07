@@ -1,0 +1,2 @@
+# Airtribe-ShareMyRecipe
+ShareMyRecipe is a modern recipe platform with secure REST APIs. Browse public recipes with filters and pagination; onboard chefs; JWT‑protected authoring for drafts/published; multi‑image upload with auto‑resize; follow/unfollow chefs; and a separate Spring worker that consumes a queue for async data ingestion.
