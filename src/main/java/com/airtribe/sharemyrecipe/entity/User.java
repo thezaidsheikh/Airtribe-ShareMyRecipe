@@ -1,22 +1,20 @@
 package com.airtribe.sharemyrecipe.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column( nullable = false, updatable = false)
+    private String userId;
 
     @Column(unique = true, nullable = false)
     private String username;
 
+    @Email
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -26,11 +24,14 @@ public class User {
     @Column(columnDefinition = "boolean default false")
     private Boolean isEnabled;
 
-    public Long getUserId() {
+    @Column(columnDefinition = "varchar(255) default 'CHEF'")
+    private String role;
+
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -50,11 +51,27 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Boolean getEnabled() {
         return isEnabled;
     }
 
     public void setEnabled(Boolean enabled) {
         isEnabled = enabled;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
