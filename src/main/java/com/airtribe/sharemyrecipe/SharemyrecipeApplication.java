@@ -9,5 +9,4 @@ public class SharemyrecipeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SharemyrecipeApplication.class, args);
 	}
-
 }
